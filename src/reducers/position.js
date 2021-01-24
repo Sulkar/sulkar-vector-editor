@@ -15,7 +15,6 @@ const reducer = function (state, action) {
         
         case CHANGE_POSITION_X:
             if (isNaN(action.positionX)) {
-                log.warn(`Invalid brush size: ${action.positionX}`);
                 return state;
             }
             return action.positionX;
