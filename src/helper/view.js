@@ -9,8 +9,8 @@ import log from '../log/log';
 // canvases of ART_BOARD size.
 // (This is for backwards compatibility, to handle both assets
 // designed for 480 x 360, and bitmap resolution 2 bitmaps)
-const SVG_ART_BOARD_WIDTH = 480;
-const SVG_ART_BOARD_HEIGHT = 360;
+const SVG_ART_BOARD_WIDTH = 600;
+const SVG_ART_BOARD_HEIGHT = 400;
 const ART_BOARD_WIDTH = SVG_ART_BOARD_WIDTH * 2;
 const ART_BOARD_HEIGHT = SVG_ART_BOARD_HEIGHT * 2;
 const CENTER = new paper.Point(ART_BOARD_WIDTH / 2, ART_BOARD_HEIGHT / 2);
@@ -20,11 +20,11 @@ const MIN_RATIO = .125; // Zoom in to at least 1/8 of the screen. This way you d
 //                         zoomed in for tiny costumes.
 const OUTERMOST_ZOOM_LEVEL = 0.333;
 const ART_BOARD_BOUNDS = new paper.Rectangle(0, 0, ART_BOARD_WIDTH, ART_BOARD_HEIGHT);
-const MAX_WORKSPACE_BOUNDS = new paper.Rectangle(
-    -ART_BOARD_WIDTH / 4,
+const MAX_WORKSPACE_BOUNDS = new paper.Rectangle(0, 0, ART_BOARD_WIDTH, ART_BOARD_HEIGHT);
+    /*-ART_BOARD_WIDTH / 4,
     -ART_BOARD_HEIGHT / 4,
     ART_BOARD_WIDTH * 1.5,
-    ART_BOARD_HEIGHT * 1.5);
+    ART_BOARD_HEIGHT * 1.5);*/
 
 let _workspaceBounds = ART_BOARD_BOUNDS;
 
