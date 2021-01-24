@@ -1,7 +1,9 @@
 # scratch-paint
 #### Scratch-paint provides a paint editor React component that takes and outputs SVGs or PNGs. It can convert between vector and bitmap modes.
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/LLK/scratch-paint.svg)](https://greenkeeper.io/)
+#### 1) change position of selected element
+![step1](/images/xpos.png)
+
 - Try it out at [https://llk.github.io/scratch-paint/](https://llk.github.io/scratch-paint/)
 
 - Or, to try it out as part of Scratch 3.0, visit [https://scratch.mit.edu/create](https://scratch.mit.edu/create) and click on the "Costumes" tab.
