@@ -19,6 +19,7 @@ import textEditTargetReducer from './text-edit-target';
 import viewBoundsReducer from './view-bounds';
 import undoReducer from './undo';
 import zoomLevelsReducer from './zoom-levels';
+import positionReducer from './position';
 
 export default combineReducers({
     mode: modeReducer,
@@ -40,5 +41,6 @@ export default combineReducers({
     textEditTarget: textEditTargetReducer,
     undo: undoReducer,
     viewBounds: viewBoundsReducer,
-    zoomLevels: zoomLevelsReducer
+    zoomLevels: zoomLevelsReducer,
+    position:positionReducer
 });

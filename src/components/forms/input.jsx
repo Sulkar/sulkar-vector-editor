@@ -13,7 +13,7 @@ import classNames from 'classnames';
 import styles from './input.css';
 
 const Input = props => {
-    const {small, range, ...componentProps} = props;
+    const {small, range, sulkar, ...componentProps} = props;
     return (
         <input
             {...componentProps}
@@ -22,7 +22,8 @@ const Input = props => {
                 props.className,
                 {
                     [styles.inputSmall]: small && !range,
-                    [styles.inputSmallRange]: small && range
+                    [styles.inputSmallRange]: small && range,
+                    [styles.inputSulkar]: sulkar
                 }
             )}
         />
@@ -32,12 +33,14 @@ const Input = props => {
 Input.propTypes = {
     className: PropTypes.string,
     range: PropTypes.bool,
-    small: PropTypes.bool
+    small: PropTypes.bool,
+    sulkar: PropTypes.bool
 };
 
 Input.defaultProps = {
     range: false,
-    small: false
+    small: false,
+    sulkar: false
 };
 
 export default Input;

@@ -43,6 +43,8 @@ import zoomInIcon from './icons/zoom-in.svg';
 import zoomOutIcon from './icons/zoom-out.svg';
 import zoomResetIcon from './icons/zoom-reset.svg';
 
+import PositionComponent from '../../containers/position.jsx';
+
 const messages = defineMessages({
     bitmap: {
         defaultMessage: 'Convert to Bitmap',
@@ -98,6 +100,12 @@ const PaintEditorComponent = props => (
                             <StrokeWidthIndicatorComponent
                                 onUpdateImage={props.onUpdateImage}
                             />
+
+                            {/* Position X */}
+                            <PositionComponent                                
+                                onUpdateImage={props.onUpdateImage}
+                            />
+
                         </InputGroup>
                         <InputGroup className={styles.modModeTools}>
                             <ModeToolsContainer

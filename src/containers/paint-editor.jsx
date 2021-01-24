@@ -29,6 +29,8 @@ import Formats from '../lib/format';
 import {isBitmap, isVector} from '../lib/format';
 import bindAll from 'lodash.bindall';
 
+import {updateSelectionMoved} from '../reducers/move';
+
 /**
  * The top-level paint editor component. See README for more details on usage.
  *
@@ -267,6 +269,8 @@ class PaintEditor extends React.Component {
             this.props.onDeactivateEyeDropper();
             this.stopEyeDroppingLoop();
         }
+        //if selection has moved
+        this.props.updateSelectionMoved(getSelectedLeafItems());
     }
     startEyeDroppingLoop () {
         this.eyeDropper = new EyeDropperTool(
@@ -383,6 +387,7 @@ const mapStateToProps = state => ({
     changeColorToEyeDropper: state.scratchPaint.color.eyeDropper.callback,
     format: state.scratchPaint.format,
     isEyeDropping: state.scratchPaint.color.eyeDropper.active,
+    isMoving: state.scratchPaint.moving,
     mode: state.scratchPaint.mode,
     previousTool: state.scratchPaint.color.eyeDropper.previousTool,
     viewBounds: state.scratchPaint.viewBounds
@@ -415,6 +420,9 @@ const mapDispatchToProps = dispatch => ({
     },
     updateViewBounds: matrix => {
         dispatch(updateViewBounds(matrix));
+    },
+    updateSelectionMoved: () => {
+        dispatch(updateSelectionMoved(getSelectedLeafItems()));
     }
 });
 
