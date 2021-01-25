@@ -11,9 +11,9 @@ import log from '../log/log';
 // designed for 480 x 360, and bitmap resolution 2 bitmaps)
 const SVG_ART_BOARD_WIDTH = 600;
 const SVG_ART_BOARD_HEIGHT = 400;
-const ART_BOARD_WIDTH = SVG_ART_BOARD_WIDTH * 2;
-const ART_BOARD_HEIGHT = SVG_ART_BOARD_HEIGHT * 2;
-const CENTER = new paper.Point(ART_BOARD_WIDTH / 2, ART_BOARD_HEIGHT / 2);
+const ART_BOARD_WIDTH = SVG_ART_BOARD_WIDTH*2;
+const ART_BOARD_HEIGHT = SVG_ART_BOARD_HEIGHT*2;
+const CENTER = new paper.Point(SVG_ART_BOARD_WIDTH , SVG_ART_BOARD_HEIGHT);//new paper.Point(0 , 0);
 const PADDING_PERCENT = 25; // Padding as a percent of the max of width/height of the sprite
 const BUFFER = 50; // Number of pixels of allowance around objects at the edges of the workspace
 const MIN_RATIO = .125; // Zoom in to at least 1/8 of the screen. This way you don't end up incredibly

@@ -43,7 +43,10 @@ import zoomInIcon from './icons/zoom-in.svg';
 import zoomOutIcon from './icons/zoom-out.svg';
 import zoomResetIcon from './icons/zoom-reset.svg';
 
-import PositionComponent from '../../containers/position.jsx';
+import PositionXComponent from '../../containers/positionX.jsx';
+import PositionYComponent from '../../containers/positionY.jsx';
+import PositionWidthComponent from '../../containers/positionWidth.jsx';
+import PositionHeightComponent from '../../containers/positionHeight.jsx';
 
 const messages = defineMessages({
     bitmap: {
@@ -102,7 +105,20 @@ const PaintEditorComponent = props => (
                             />
 
                             {/* Position X */}
-                            <PositionComponent                                
+                            <PositionXComponent                                
+                                onUpdateImage={props.onUpdateImage}
+                            />
+                            {/* Position Y */}
+                            <PositionYComponent                                
+                                onUpdateImage={props.onUpdateImage}
+                            />
+
+                            {/* Position Width */}
+                            <PositionWidthComponent                                
+                                onUpdateImage={props.onUpdateImage}
+                            />
+                            {/* Position Height */}
+                            <PositionHeightComponent                                
                                 onUpdateImage={props.onUpdateImage}
                             />
 

@@ -2,13 +2,13 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
-import {changePosition} from '../reducers/position.js';
-import PositionComponent from '../components/position.jsx';
+import {changePosition} from '../reducers/positionX.js';
+import PositionXComponent from '../components/positionX.jsx';
 import {getSelectedLeafItems} from '../helper/selection';
 
 
 import {setSelectedItems} from '../reducers/selected-items';
-import {applyPositionToSelection} from '../helper/transforms'; 
+import {applyPositionXToSelection} from '../helper/transforms'; 
 
     
 import Modes from '../lib/modes';
@@ -24,7 +24,7 @@ class PositionIndicator extends React.Component {
     }
     handlePosition (newWidth) {
 
-        let changed = applyPositionToSelection(newWidth, this.props.textEditTarget);  
+        let changed = applyPositionXToSelection(newWidth, this.props.textEditTarget);  
 
         this.props.setSelectedItems(this.props.format);
 
@@ -37,7 +37,7 @@ class PositionIndicator extends React.Component {
     }
     render () {
         return (
-            <PositionComponent
+            <PositionXComponent
                 disabled={this.props.disabled}
                 positionX={this.props.positionX}
                 onChangePosition={this.handlePosition}
@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
         state.scratchPaint.mode === Modes.TEXT ||
         state.scratchPaint.mode === Modes.FILL,
     format: state.scratchPaint.format,
-    positionX: state.scratchPaint.position, //
+    positionX: state.scratchPaint.positionX,
     textEditTarget: state.scratchPaint.textEditTarget
 });
 

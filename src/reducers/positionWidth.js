@@ -1,10 +1,8 @@
-import log from '../log/log';
 import {CHANGE_SELECTED_ITEMS} from './selected-items';
-import {CHANGE_MODE} from './modes';
-import {getPositionXFromSelection} from '../helper/transforms';
+import {getPositionWidthFromSelection} from '../helper/transforms';
 import {MOVING} from '../reducers/move';
 
-const CHANGE_POSITION_X = 'scratch-paint/position/CHANGE_POSITION_X';
+const CHANGE_POSITION_WIDTH = 'scratch-paint/position/CHANGE_POSITION_WIDTH';
 const initialState = 4;
 
 const reducer = function (state, action) {  
@@ -12,12 +10,12 @@ const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;
 
     switch (action.type) {
-        
-        case CHANGE_POSITION_X:
-            if (isNaN(action.positionX)) {
+
+        case CHANGE_POSITION_WIDTH:
+            if (isNaN(action.positionWidth)) {
                 return state;
             }
-            return action.positionX;
+            return action.positionWidth;
 
         case CHANGE_SELECTED_ITEMS:
             // Don't change state if no selection
@@ -28,31 +26,29 @@ const reducer = function (state, action) {
             if (action.bitmapMode) {
                 return state;
             }
-            return getPositionXFromSelection(action.selectedItems, action.bitmapMode);
+            return getPositionWidthFromSelection(action.selectedItems, action.bitmapMode);
 
         case MOVING:
             if (!action.selectedItems || !action.selectedItems.length) {
                 return state;
             }
-            return getPositionXFromSelection(action.selectedItems, false);
+            return getPositionWidthFromSelection(action.selectedItems, false);
         default:
             return state;
     }
 };
 
 // Action creators ==================================
-const changePosition = function (positionX) {
+const changePositionWidth = function (positionWidth) {
     
     return {
-        type: CHANGE_POSITION_X,
-        positionX: positionX
+        type: CHANGE_POSITION_WIDTH,
+        positionWidth: positionWidth
     };
 };
 
-
-
 export {
     reducer as default,
-    changePosition,
-    CHANGE_POSITION_X
+    changePositionWidth,
+    CHANGE_POSITION_WIDTH
 };
