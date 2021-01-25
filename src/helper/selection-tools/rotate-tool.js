@@ -37,8 +37,12 @@ class RotateTool {
 
         for (let i = 0; i < this.rotItems.length; i++) {
             const item = this.rotItems[i];
-
-            item.rotate(rotAngle - this.prevRot, this.rotGroupPivot);
+            
+            let currentRotation = rotAngle - this.prevRot;
+            item.rotate(currentRotation, this.rotGroupPivot);
+            // custom rotation property 
+            if(item.myRotation == null) item.myRotation = 0;
+            item.myRotation += currentRotation;
         }
 
         this.prevRot = rotAngle;

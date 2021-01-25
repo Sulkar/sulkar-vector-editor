@@ -23,6 +23,7 @@ import positionXReducer from './positionX';
 import positionYReducer from './positionY';
 import positionWidthReducer from './positionWidth';
 import positionHeightReducer from './positionHeight';
+import positionRotationReducer from './positionRotation';
 
 
 
@@ -50,5 +51,6 @@ export default combineReducers({
     positionX:positionXReducer,
     positionY:positionYReducer,
     positionWidth:positionWidthReducer,
-    positionHeight:positionHeightReducer
+    positionHeight:positionHeightReducer,
+    positionRotation:positionRotationReducer
 });

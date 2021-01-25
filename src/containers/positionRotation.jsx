@@ -2,13 +2,13 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
-import {changePositionX} from '../reducers/positionX.js';
-import PositionXComponent from '../components/positionX.jsx';
+import {changePositionRotation} from '../reducers/positionRotation.js';
+import PositionRotationComponent from '../components/positionRotation.jsx';
 import {getSelectedLeafItems} from '../helper/selection';
 
 
 import {setSelectedItems} from '../reducers/selected-items';
-import {applyPositionXToSelection} from '../helper/transforms'; 
+import {applyRotationToSelection} from '../helper/transforms'; 
 
     
 import Modes from '../lib/modes';
@@ -24,11 +24,11 @@ class PositionIndicator extends React.Component {
     }
     handlePosition (newWidth) {
 
-        let changed = applyPositionXToSelection(newWidth, this.props.textEditTarget);  
+        let changed = applyRotationToSelection(newWidth, this.props.textEditTarget);  
 
         this.props.setSelectedItems(this.props.format);
 
-        this.props.onChangePosition(newWidth);
+        this.props.onChangeRotation(newWidth);
 
         if (changed){
             this.props.setSelectedItems(this.props.format);
@@ -37,10 +37,10 @@ class PositionIndicator extends React.Component {
     }
     render () {
         return (
-            <PositionXComponent
+            <PositionRotationComponent
                 disabled={this.props.disabled}
-                positionX={this.props.positionX}
-                onChangePosition={this.handlePosition}
+                positionRotation={this.props.positionRotation}
+                onChangeRotation={this.handlePosition}
             />
         );
     }
@@ -51,13 +51,13 @@ const mapStateToProps = state => ({
         state.scratchPaint.mode === Modes.TEXT ||
         state.scratchPaint.mode === Modes.FILL,
     format: state.scratchPaint.format,
-    positionX: state.scratchPaint.positionX,
+    positionRotation: state.scratchPaint.positionRotation, //
     textEditTarget: state.scratchPaint.textEditTarget
 });
 
 const mapDispatchToProps = dispatch => ({
-    onChangePosition: positionX => {
-        dispatch(changePositionX(positionX));
+    onChangeRotation: positionRotation => {
+        dispatch(changePositionRotation(positionRotation));
         
     },
     setSelectedItems: format => {
@@ -68,9 +68,9 @@ const mapDispatchToProps = dispatch => ({
 PositionIndicator.propTypes = {
     disabled: PropTypes.bool.isRequired,
     format: PropTypes.oneOf(Object.keys(Formats)),
-    onChangePosition: PropTypes.func.isRequired,
+    onChangeRotation: PropTypes.func.isRequired,
     onUpdateImage: PropTypes.func.isRequired,
-    positionX: PropTypes.number,
+    positionRotation: PropTypes.number,
     textEditTarget: PropTypes.number,
     setSelectedItems: PropTypes.func.isRequired
 };

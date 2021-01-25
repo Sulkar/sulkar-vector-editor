@@ -4,6 +4,8 @@
 #### 1) change position of selected element
 ![step1](/images/xpos.png)
 
+![step2](/images/rotation.png)
+
 - Try it out at [https://llk.github.io/scratch-paint/](https://llk.github.io/scratch-paint/)
 
 - Or, to try it out as part of Scratch 3.0, visit [https://scratch.mit.edu/create](https://scratch.mit.edu/create) and click on the "Costumes" tab.

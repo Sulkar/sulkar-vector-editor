@@ -6,6 +6,7 @@ import {getItems} from './selection';
 const MIN_WIDTH = 1;
 const MIN_HEIGHT = 1;
 
+
 // Selected items and currently active text edit items respond to color changes.
 const _getItems = function (textEditTargetId) {
     const items = getSelectedLeafItems();
@@ -22,6 +23,7 @@ const _getItems = function (textEditTargetId) {
 
 // set Position X,Y
 const applyPositionXToSelection = function (value, textEditTargetId) {
+
     let changed = false;
     const items = _getItems(textEditTargetId);
     for (let item of items) {
@@ -60,14 +62,14 @@ const getPositionXFromSelection = function (selectedItems, bitmapMode){
     for (let item of selectedItems) {
        tempX = item.position.x;
     }
-    return tempX;
+    return Math.round(tempX);
 }
 const getPositionYFromSelection = function (selectedItems, bitmapMode){
     let tempY = 0;
     for (let item of selectedItems) {
        tempY = item.position.y;
     }
-    return tempY;
+    return Math.round(tempY);
 }
 
 // set Position Width, Height
@@ -124,6 +126,46 @@ const getPositionHeightFromSelection = function (selectedItems, bitmapMode){
     return Math.round(tempHeight);
 }
 
+// set Rotation
+//
+const _getDeltaRotation = function (currentItemRotation, rotationInput){
+    // beispiel: element ist bereits um 45° gedreht und will insgesamt auf 50°
+    let deltaRotation = rotationInput - currentItemRotation;
+    return deltaRotation;
+}
+
+
+const applyRotationToSelection = function (value, textEditTargetId) {
+
+    let changed = false;
+    const items = _getItems(textEditTargetId);
+    for (let item of items) {
+        //add new rotation property to item
+        if(item.myRotation == null) item.myRotation = 0;
+
+        if (item.parent instanceof paper.CompoundPath) {
+            item = item.parent;
+        }
+        if (isGroup(item)) {
+            continue;
+        } else if (item.myRotation !== value) {
+            item.rotate(_getDeltaRotation(item.myRotation, value));
+            item.myRotation = value;
+            changed = true;
+        }
+    }
+    return changed;
+};
+// get Rotation
+const getRotationFromSelection = function (selectedItems, bitmapMode){
+    
+    let tempRotation = 0;
+    for (let item of selectedItems) {
+        if(item.myRotation == null) item.myRotation = 0;
+        tempRotation = item.myRotation;
+    }
+    return Math.round(tempRotation);
+}
 export {
     applyPositionXToSelection,
     applyPositionYToSelection,
@@ -132,5 +174,7 @@ export {
     applyPositionWidthToSelection,
     applyPositionHeightToSelection,
     getPositionWidthFromSelection,
-    getPositionHeightFromSelection
+    getPositionHeightFromSelection,
+    applyRotationToSelection,
+    getRotationFromSelection
 };

@@ -47,6 +47,7 @@ import PositionXComponent from '../../containers/positionX.jsx';
 import PositionYComponent from '../../containers/positionY.jsx';
 import PositionWidthComponent from '../../containers/positionWidth.jsx';
 import PositionHeightComponent from '../../containers/positionHeight.jsx';
+import PositionRotationComponent from '../../containers/positionRotation.jsx';
 
 const messages = defineMessages({
     bitmap: {
@@ -119,6 +120,10 @@ const PaintEditorComponent = props => (
                             />
                             {/* Position Height */}
                             <PositionHeightComponent                                
+                                onUpdateImage={props.onUpdateImage}
+                            />
+                            {/* Position Rotation */}
+                            <PositionRotationComponent                                
                                 onUpdateImage={props.onUpdateImage}
                             />
 
