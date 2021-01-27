@@ -48,6 +48,7 @@ import PositionYComponent from '../../containers/positionY.jsx';
 import PositionWidthComponent from '../../containers/positionWidth.jsx';
 import PositionHeightComponent from '../../containers/positionHeight.jsx';
 import PositionRotationComponent from '../../containers/positionRotation.jsx';
+import PolyMode from '../../containers/poly-mode.jsx';
 
 const messages = defineMessages({
     bitmap: {
@@ -189,6 +190,9 @@ const PaintEditorComponent = props => (
                         onUpdateImage={props.onUpdateImage}
                     />
                     <RectMode
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    <PolyMode
                         onUpdateImage={props.onUpdateImage}
                     />
                 </div>
