@@ -348,7 +348,7 @@ PaintEditorComponent.propTypes = {
         PropTypes.instanceOf(HTMLImageElement)
     ]),
     imageFormat: PropTypes.string,
-    imageId: PropTypes.string,
+    imageId: PropTypes.number,
     intl: intlShape,
     isEyeDropping: PropTypes.bool,
     name: PropTypes.string,

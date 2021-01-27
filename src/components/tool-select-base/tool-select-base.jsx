@@ -8,11 +8,17 @@ import Button from '../button/button.jsx';
 import styles from './tool-select-base.css';
 
 const ToolSelectComponent = props => (
+
     <Button
         className={
-            classNames(props.className, styles.modToolSelect, {
-                [styles.isSelected]: props.isSelected
-            })
+            classNames(
+                props.className, 
+                styles.modToolSelect,
+                {
+                    [styles.isSelected]: props.isSelected,
+                    [styles.sulkar]: props.sulkar
+                }
+            )
         }
         disabled={props.disabled}
         title={props.intl.formatMessage(props.imgDescriptor)}
@@ -38,7 +44,12 @@ ToolSelectComponent.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     intl: intlShape.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    onMouseDown: PropTypes.func.isRequired
+    onMouseDown: PropTypes.func.isRequired,
+    sulkar: PropTypes.bool
+};
+
+ToolSelectComponent.defaultProps = {
+    sulkar: false
 };
 
 export default injectIntl(ToolSelectComponent);

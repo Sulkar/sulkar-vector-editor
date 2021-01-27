@@ -10,6 +10,7 @@ const PolyModeComponent = props => (
         imgSrc={polyIcon}
         isSelected={props.isSelected}
         onMouseDown={props.onMouseDown}
+        sulkar
     />
 );
 

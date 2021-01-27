@@ -357,7 +357,7 @@ PaperCanvas.propTypes = {
         PropTypes.instanceOf(HTMLImageElement)
     ]),
     imageFormat: PropTypes.string, // The incoming image's data format, used during import. The user could switch this.
-    imageId: PropTypes.string,
+    imageId: PropTypes.number,
     rotationCenterX: PropTypes.number,
     rotationCenterY: PropTypes.number,
     saveZoomLevel: PropTypes.func.isRequired,

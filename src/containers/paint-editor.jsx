@@ -356,7 +356,7 @@ PaintEditor.propTypes = {
         PropTypes.instanceOf(HTMLImageElement)
     ]),
     imageFormat: PropTypes.string, // The incoming image's data format, used during import
-    imageId: PropTypes.string,
+    imageId: PropTypes.number,
     isEyeDropping: PropTypes.bool,
     mode: PropTypes.oneOf(Object.keys(Modes)).isRequired,
     name: PropTypes.string,
