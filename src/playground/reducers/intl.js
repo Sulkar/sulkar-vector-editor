@@ -12,8 +12,8 @@ Object.keys(localeData).forEach(locale => {
 
 const intlInitialState = {
     intl: {
-        defaultLocale: 'en',
-        locale: 'en',
+        defaultLocale: 'de',
+        locale: 'de',
         messages: paintMessages.en.messages
     }
 };

@@ -17,7 +17,7 @@ const messages = defineMessages({
     label: {
         id: 'paint.paintEditor.stroke',
         description: 'Label for the color picker for the outline color',
-        defaultMessage: 'Outline'
+        defaultMessage: 'Randfarbe'
     }
 });
 

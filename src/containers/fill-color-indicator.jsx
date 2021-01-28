@@ -16,7 +16,7 @@ const messages = defineMessages({
     label: {
         id: 'paint.paintEditor.fill',
         description: 'Label for the color picker for the fill color',
-        defaultMessage: 'Fill'
+        defaultMessage: 'Füllfarbe'
     }
 });
 

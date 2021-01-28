@@ -8,7 +8,7 @@
 }
 
 .costume-input {
-    width: 8rem;
+    width: 6rem;
 }
 
 [dir="ltr"] .mod-dashed-border {
@@ -130,4 +130,9 @@ $border-radius: 0.25rem;
 [dir="rtl"] .menu-item-icon {
     margin-right: 0;
     margin-left: calc(2 * $grid-unit);
+}
+
+.sulkar-icon{
+    width: auto;
+    margin-right: 5px;
 }

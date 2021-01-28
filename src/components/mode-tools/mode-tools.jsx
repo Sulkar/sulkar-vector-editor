@@ -46,62 +46,62 @@ const LiveInput = LiveInputHOC(Input);
 const ModeToolsComponent = props => {
     const messages = defineMessages({
         brushSize: {
-            defaultMessage: 'Size',
+            defaultMessage: 'Größe',
             description: 'Label for the brush size input',
             id: 'paint.modeTools.brushSize'
         },
         eraserSize: {
-            defaultMessage: 'Eraser size',
+            defaultMessage: 'Radierer Größe',
             description: 'Label for the eraser size input',
             id: 'paint.modeTools.eraserSize'
         },
         copy: {
-            defaultMessage: 'Copy',
+            defaultMessage: 'Kopieren',
             description: 'Label for the copy button',
             id: 'paint.modeTools.copy'
         },
         paste: {
-            defaultMessage: 'Paste',
+            defaultMessage: 'Einfügen',
             description: 'Label for the paste button',
             id: 'paint.modeTools.paste'
         },
         delete: {
-            defaultMessage: 'Delete',
+            defaultMessage: 'Löschen',
             description: 'Label for the delete button',
             id: 'paint.modeTools.delete'
         },
         curved: {
-            defaultMessage: 'Curved',
+            defaultMessage: 'Kurve',
             description: 'Label for the button that converts selected points to curves',
             id: 'paint.modeTools.curved'
         },
         pointed: {
-            defaultMessage: 'Pointed',
+            defaultMessage: 'Punkt',
             description: 'Label for the button that converts selected points to sharp points',
             id: 'paint.modeTools.pointed'
         },
         thickness: {
-            defaultMessage: 'Thickness',
+            defaultMessage: 'Dicke',
             description: 'Label for the number input to choose the line thickness',
             id: 'paint.modeTools.thickness'
         },
         flipHorizontal: {
-            defaultMessage: 'Flip Horizontal',
+            defaultMessage: 'Horizontal spiegeln',
             description: 'Label for the button to flip the image horizontally',
             id: 'paint.modeTools.flipHorizontal'
         },
         flipVertical: {
-            defaultMessage: 'Flip Vertical',
+            defaultMessage: 'Vertikal spiegeln',
             description: 'Label for the button to flip the image vertically',
             id: 'paint.modeTools.flipVertical'
         },
         filled: {
-            defaultMessage: 'Filled',
+            defaultMessage: 'Gefüllt',
             description: 'Label for the button that sets the bitmap rectangle/oval mode to draw outlines',
             id: 'paint.modeTools.filled'
         },
         outlined: {
-            defaultMessage: 'Outlined',
+            defaultMessage: 'Rand',
             description: 'Label for the button that sets the bitmap rectangle/oval mode to draw filled-in shapes',
             id: 'paint.modeTools.outlined'
         }

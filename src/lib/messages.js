@@ -2,37 +2,37 @@ import {defineMessages} from 'react-intl';
 
 const messages = defineMessages({
     brush: {
-        defaultMessage: 'Brush',
+        defaultMessage: 'Pinsel',
         description: 'Label for the brush tool',
         id: 'paint.brushMode.brush'
     },
     eraser: {
-        defaultMessage: 'Eraser',
+        defaultMessage: 'Radierer',
         description: 'Label for the eraser tool',
         id: 'paint.eraserMode.eraser'
     },
     fill: {
-        defaultMessage: 'Fill',
+        defaultMessage: 'Füllen',
         description: 'Label for the fill tool',
         id: 'paint.fillMode.fill'
     },
     line: {
-        defaultMessage: 'Line',
+        defaultMessage: 'Linie',
         description: 'Label for the line tool',
         id: 'paint.lineMode.line'
     },
     oval: {
-        defaultMessage: 'Circle',
+        defaultMessage: 'Kreis',
         description: 'Label for the oval-drawing tool',
         id: 'paint.ovalMode.oval'
     },
     rect: {
-        defaultMessage: 'Rectangle',
+        defaultMessage: 'Viereck',
         description: 'Label for the rectangle tool',
         id: 'paint.rectMode.rect'
     },
     reshape: {
-        defaultMessage: 'Reshape',
+        defaultMessage: 'Punktauswahl',
         description: 'Label for the reshape tool, which allows changing the points in the lines of the vectors',
         id: 'paint.reshapeMode.reshape'
     },
@@ -42,7 +42,7 @@ const messages = defineMessages({
         id: 'paint.roundedRectMode.roundedRect'
     },
     select: {
-        defaultMessage: 'Select',
+        defaultMessage: 'Auswahl',
         description: 'Label for the select tool, which allows selecting, moving, and resizing shapes',
         id: 'paint.selectMode.select'
     },
@@ -50,6 +50,11 @@ const messages = defineMessages({
         defaultMessage: 'Text',
         description: 'Label for the text tool',
         id: 'paint.textMode.text'
+    },
+    poly: {
+        defaultMessage: 'Dreieck',
+        description: 'Label for the rectangle tool',
+        id: 'paint.polyMode.rect'
     }
 });
 

@@ -30,6 +30,7 @@ import sendForwardIcon from './icons/send-forward.svg';
 import sendFrontIcon from './icons/send-front.svg';
 import undoIcon from './icons/undo.svg';
 import ungroupIcon from './icons/ungroup.svg';
+import sulkarIcon from './icons/sulkar.svg';
 
 const BufferedInput = BufferedInputHOC(Input);
 const messages = defineMessages({
@@ -39,42 +40,42 @@ const messages = defineMessages({
         defaultMessage: 'Costume'
     },
     group: {
-        defaultMessage: 'Group',
+        defaultMessage: 'Gruppieren',
         description: 'Label for the button to group shapes',
         id: 'paint.paintEditor.group'
     },
     ungroup: {
-        defaultMessage: 'Ungroup',
+        defaultMessage: 'Gruppierung aufheben',
         description: 'Label for the button to ungroup shapes',
         id: 'paint.paintEditor.ungroup'
     },
     undo: {
-        defaultMessage: 'Undo',
+        defaultMessage: 'Rückgängig',
         description: 'Alt to image for the button to undo an action',
         id: 'paint.paintEditor.undo'
     },
     redo: {
-        defaultMessage: 'Redo',
+        defaultMessage: 'Wiederholen',
         description: 'Alt to image for the button to redo an action',
         id: 'paint.paintEditor.redo'
     },
     forward: {
-        defaultMessage: 'Forward',
+        defaultMessage: 'nach vorne',
         description: 'Label for the `Send forward on canvas` button',
         id: 'paint.paintEditor.forward'
     },
     backward: {
-        defaultMessage: 'Backward',
+        defaultMessage: 'nach hinten',
         description: 'Label for the `Send backward on canvas` button',
         id: 'paint.paintEditor.backward'
     },
     front: {
-        defaultMessage: 'Front',
+        defaultMessage: 'Vordergrund',
         description: 'Label for the `Send to front of canvas` button',
         id: 'paint.paintEditor.front'
     },
     back: {
-        defaultMessage: 'Back',
+        defaultMessage: 'Hintergrund',
         description: 'Label for the `Send to back of canvas` button',
         id: 'paint.paintEditor.back'
     },
@@ -91,10 +92,23 @@ const FixedToolsComponent = props => {
 
     return (
         <div className={styles.row}>
+            <a href="https://www.sulkar.org">
+            <span>
+                <img
+                    className={classNames(
+                        styles.buttonGroupButtonIcon,
+                        styles.sulkarIcon
+                    )}
+                    draggable={false}
+                    src={sulkarIcon}
+                />
+
+            </span>
+            </a>
             {/* Name field */}
             <InputGroup>
                 <MediaQuery minWidth={layout.fullSizeEditorMinWidth}>
-                    <Label text={props.intl.formatMessage(messages.costume)}>
+                    <Label text={""}>
                         <BufferedInput
                             className={styles.costumeInput}
                             type="text"
@@ -200,8 +214,9 @@ const FixedToolsComponent = props => {
                 </InputGroup> : null
             }
 
+
             {isVector(props.format) ?
-                <MediaQuery minWidth={layout.fullSizeEditorMinWidth}>
+                
                     <InputGroup className={styles.row}>
                         <LabeledIconButton
                             disabled={!shouldShowBringForward()}
@@ -219,18 +234,10 @@ const FixedToolsComponent = props => {
                         />
                     </InputGroup>
 
-                    {/* To be rotation point */}
-                    {/* <InputGroup>
-                        <LabeledIconButton
-                            imgAlt="Rotation Point"
-                            imgSrc={rotationPointIcon}
-                            title="Rotation Point"
-                            onClick={function () {}}
-                        />
-                    </InputGroup> */}
-                </MediaQuery> : null
+                
+                : null
             }
-            {isVector(props.format) ?
+            {/*isVector(props.format) ?
                 <MediaQuery maxWidth={layout.fullSizeEditorMinWidth - 1}>
                     <InputGroup>
                         <Dropdown
@@ -281,7 +288,7 @@ const FixedToolsComponent = props => {
                                             src={rotationPointIcon}
                                         />
                                         <span>{'Rotation Point'}</span>
-                                    </Button> */}
+                                    </Button> *//*}
                                 </InputGroup>
                             }
                             tipSize={.01}
@@ -289,7 +296,7 @@ const FixedToolsComponent = props => {
                             {props.intl.formatMessage(messages.more)}
                         </Dropdown>
                     </InputGroup>
-                </MediaQuery> : null
+                </MediaQuery> : null*/
             }
         </div>
     );

@@ -192,7 +192,7 @@ class ColorPickerComponent extends React.Component {
                     <div className={styles.rowHeader}>
                         <span className={styles.labelName}>
                             <FormattedMessage
-                                defaultMessage="Color"
+                                defaultMessage="Farbe"
                                 description="Label for the hue component in the color picker"
                                 id="paint.paintEditor.hue"
                             />
@@ -213,7 +213,7 @@ class ColorPickerComponent extends React.Component {
                     <div className={styles.rowHeader}>
                         <span className={styles.labelName}>
                             <FormattedMessage
-                                defaultMessage="Saturation"
+                                defaultMessage="Sättigung"
                                 description="Label for the saturation component in the color picker"
                                 id="paint.paintEditor.saturation"
                             />
@@ -234,7 +234,7 @@ class ColorPickerComponent extends React.Component {
                     <div className={styles.rowHeader}>
                         <span className={styles.labelName}>
                             <FormattedMessage
-                                defaultMessage="Brightness"
+                                defaultMessage="Helligkeit"
                                 description="Label for the brightness component in the color picker"
                                 id="paint.paintEditor.brightness"
                             />

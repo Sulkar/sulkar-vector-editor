@@ -6,7 +6,7 @@ import polyIcon from './poly.svg';
 
 const PolyModeComponent = props => (
     <ToolSelectComponent
-        imgDescriptor={messages.rect}
+        imgDescriptor={messages.poly}
         imgSrc={polyIcon}
         isSelected={props.isSelected}
         onMouseDown={props.onMouseDown}
