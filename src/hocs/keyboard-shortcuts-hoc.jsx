@@ -29,9 +29,12 @@ const KeyboardShortcutsHOC = function (WrappedComponent) {
         }
         handleKeyPress (event) {
             if (event.target instanceof HTMLInputElement) {
-                // Ignore keyboard shortcuts if a text input field is focused
+                // Ignore keyboard shortcuts if a text input field is focused                
                 return;
             }
+            //ToDo: add textEditing prop to textarea
+            // enable all keyboard events for codeTextarea
+            if (event.target.id === "codeTextarea") return;
             // Don't activate keyboard shortcuts during text editing
             if (this.props.textEditing) return;
 

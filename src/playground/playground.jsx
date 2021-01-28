@@ -85,13 +85,13 @@ class Playground extends React.Component {
     }
     getCode () {
         let data = this.state.image;
-        document.getElementById(styles.txtCode).value = data;
+        document.getElementById("codeTextarea").value = data;
         //data = [data];
         console.log(data);
     }
     setCode(){
 
-        let data = document.getElementById(styles.txtCode).value;    
+        let data = document.getElementById("codeTextarea").value;    
 
         this.setState({
             image: data,
@@ -191,7 +191,6 @@ class Playground extends React.Component {
        }
     }
 
-    
     displayCodeModal(){
         var codeModal = document.getElementById(styles.myModal);
         codeModal.style.display = "block";
@@ -200,17 +199,6 @@ class Playground extends React.Component {
         var codeModal = document.getElementById(styles.myModal);
         codeModal.style.display = "none";
     }
-
-
-/*
-span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}*/
 
 
     render () {
@@ -234,10 +222,9 @@ window.onclick = function(event) {
                     <div className={styles.modalContent}>
                         <span className={styles.close} onClick={this.hideCodeModal}>&times;</span>
                         <p>Some text in the Modal..</p>
-                        <CodeModal                                
-                            onUpdateImage={this.handleUpdateImage}
-                        />
-                        <textarea id={styles.txtCode}></textarea>
+                        <textarea id="codeTextarea" onKeyDown={this.myTextChange} placeholder="..."> 
+                        </textarea> 
+                        
                         <button className={styles.playgroundButton} onClick={this.getCode}>Code</button>
                         <button className={styles.playgroundButton} onClick={this.setCode}>set Code</button>
                     </div>
@@ -254,6 +241,7 @@ ReactDOM.render((
     <Provider store={store}>
         <IntlProvider>
             <Playground />
+            
         </IntlProvider>
     </Provider>
 ), appTarget);
