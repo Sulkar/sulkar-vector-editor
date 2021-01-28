@@ -7,7 +7,6 @@ import {createStore} from 'redux';
 import reducer from './reducers/combine-reducers';
 import {intlInitialState, IntlProvider} from './reducers/intl.js';
 import styles from './playground.css';
-import CodeModal from '../components/codeModal.jsx';
 
 // scratch-render-fonts is a playground-only dep. Fonts are expected to be imported
 // as a peer dependency, otherwise there will be two copies of them.
@@ -34,12 +33,11 @@ class Playground extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
-            'downloadImage',
+            'rootDownloadImage',
             'handleUpdateName',
             'handleUpdateImage',
             'onUploadImage',
-            'getCode',
-            'setCode'
+            'rootSetImage'
         ]);
         // Append ?dir=rtl to URL to get RTL layout
         const match = location.search.match(/dir=([^&]+)/);
@@ -83,27 +81,17 @@ class Playground extends React.Component {
             });
         }
     }
-    getCode () {
-        let data = this.state.image;
-        document.getElementById("codeTextarea").value = data;
-        //data = [data];
-        console.log(data);
-    }
-    setCode(){
-
-        let data = document.getElementById("codeTextarea").value;    
-
+ 
+    rootSetImage(data){
         this.setState({
             image: data,
-            //name: file.name.split('.').slice(0, -1).join('.'),
             imageId: ++this.id,
             imageFormat: 'svg',
             rotationCenterX: undefined,
             rotationCenterY: undefined,
         });
-
     }
-    downloadImage () {
+    rootDownloadImage () {
         const downloadLink = document.createElement('a');
         document.body.appendChild(downloadLink);
 
@@ -156,7 +144,7 @@ class Playground extends React.Component {
 
       return byteArrays;
     }
-    uploadImage() {
+    rootUploadImage() {
         document.getElementById(styles.fileInput).click();
     }
     onUploadImage(event) {
@@ -191,45 +179,18 @@ class Playground extends React.Component {
        }
     }
 
-    displayCodeModal(){
-        var codeModal = document.getElementById(styles.myModal);
-        codeModal.style.display = "block";
-    }
-    hideCodeModal(){
-        var codeModal = document.getElementById(styles.myModal);
-        codeModal.style.display = "none";
-    }
-
-
     render () {
         return (
             <div className={styles.wrapper}>
                 <PaintEditor
                     {...this.state}
+                    rootSetImage={this.rootSetImage}
+                    rootDownloadImage={this.rootDownloadImage}
+                    rootUploadImage={this.rootUploadImage}
                     onUpdateName={this.handleUpdateName}
                     onUpdateImage={this.handleUpdateImage}
                 />
-
-                <button className={styles.playgroundButton}  onClick={this.uploadImage}>Upload</button>
                 <input id={styles.fileInput} type="file" name="name" onChange={this.onUploadImage} />
-                <button className={styles.playgroundButton} onClick={this.downloadImage}>Download</button>
-
-                            
-                {/* custom code modal */}
-                <button id={styles.myBtn} onClick={this.displayCodeModal} >Open Modal</button>
-                <div id={styles.myModal} className={styles.modal}>
-
-                    <div className={styles.modalContent}>
-                        <span className={styles.close} onClick={this.hideCodeModal}>&times;</span>
-                        <p>Some text in the Modal..</p>
-                        <textarea id="codeTextarea" onKeyDown={this.myTextChange} placeholder="..."> 
-                        </textarea> 
-                        
-                        <button className={styles.playgroundButton} onClick={this.getCode}>Code</button>
-                        <button className={styles.playgroundButton} onClick={this.setCode}>set Code</button>
-                    </div>
-
-                </div>
 
             </div>
             

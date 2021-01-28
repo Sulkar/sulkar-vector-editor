@@ -72,7 +72,7 @@ import {updateSelectionMoved} from '../reducers/move';
  * zoom level. When a new zoom level ID is encountered, the paint editor will zoom to
  * fit the current costume comfortably. Leave undefined to perform no zoom to fit.
  */
-class PaintEditor extends React.Component {
+class PaintEditor extends React.Component { // bekommt ganzen State vom playground
     static get ZOOM_INCREMENT () {
         return 0.5;
     }
@@ -96,6 +96,9 @@ class PaintEditor extends React.Component {
             colorInfo: null
         };
         this.props.setLayout(this.props.rtl ? 'rtl' : 'ltr');
+        
+        
+        
     }
     componentDidMount () {
         document.addEventListener('keydown', this.props.onKeyPress);
@@ -243,7 +246,9 @@ class PaintEditor extends React.Component {
     setTextArea (element) {
         this.setState({textArea: element});
     }
+
     onMouseDown (event) {
+
         if (event.target === paper.view.element &&
                 document.activeElement instanceof HTMLInputElement) {
             document.activeElement.blur();
@@ -318,6 +323,7 @@ class PaintEditor extends React.Component {
                 colorInfo={this.state.colorInfo}
                 format={this.props.format}
                 image={this.props.image}
+                setImage={this.setImage}
                 imageFormat={this.props.imageFormat}
                 imageId={this.props.imageId}
                 isEyeDropping={this.props.isEyeDropping}
@@ -338,6 +344,9 @@ class PaintEditor extends React.Component {
                 onZoomIn={this.handleZoomIn}
                 onZoomOut={this.handleZoomOut}
                 onZoomReset={this.handleZoomReset}
+                rootSetImage={this.props.rootSetImage}
+                rootDownloadImage={this.props.rootDownloadImage}
+                rootUploadImage={this.props.rootUploadImage}
             />
         );
     }
@@ -380,7 +389,10 @@ PaintEditor.propTypes = {
     shouldShowUndo: PropTypes.func.isRequired,
     updateViewBounds: PropTypes.func.isRequired,
     viewBounds: PropTypes.instanceOf(paper.Matrix).isRequired,
-    zoomLevelId: PropTypes.string
+    zoomLevelId: PropTypes.string,
+    rootSetImage: PropTypes.func,
+    rootDownloadImage: PropTypes.func,
+    rootUploadImage: PropTypes.func
 };
 
 const mapStateToProps = state => ({

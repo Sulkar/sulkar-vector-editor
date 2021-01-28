@@ -50,14 +50,18 @@ import PositionHeightComponent from '../../containers/positionHeight.jsx';
 import PositionRotationComponent from '../../containers/positionRotation.jsx';
 import PolyMode from '../../containers/poly-mode.jsx';
 
+import CodeModal from '../codeModal/codeModal.jsx';
+import DownloadImage from '../download-upload/downloadImage.jsx';
+import UploadImage from '../download-upload/uploadImage.jsx';
+
 const messages = defineMessages({
     bitmap: {
-        defaultMessage: 'Convert to Bitmap',
+        defaultMessage: 'Rastergrafik',
         description: 'Label for button that converts the paint editor to bitmap mode',
         id: 'paint.paintEditor.bitmap'
     },
     vector: {
-        defaultMessage: 'Convert to Vector',
+        defaultMessage: 'Vektorgrafik',
         description: 'Label for button that converts the paint editor to vector mode',
         id: 'paint.paintEditor.vector'
     }
@@ -198,8 +202,8 @@ const PaintEditorComponent = props => (
                     {/* Position Rotation */}
                     <PositionRotationComponent                                
                         onUpdateImage={props.onUpdateImage}
-                    />
-                    
+                    />                    
+
                 </div>
             ) : null}
 
@@ -298,6 +302,17 @@ const PaintEditorComponent = props => (
                                 </span>
                             </Button> : null
                     }
+
+                    <CodeModal
+                        onUpdateImage={props.onUpdateImage}
+                        rootSetImage={props.rootSetImage}
+                        image={props.image}
+                    />
+
+                    <DownloadImage rootDownloadImage={props.rootDownloadImage} />
+
+                    <UploadImage rootUploadImage={props.rootUploadImage} />
+
                     {/* Zoom controls */}
                     <InputGroup className={styles.zoomControls}>
                         <ButtonGroup>
@@ -370,9 +385,11 @@ PaintEditorComponent.propTypes = {
     rotationCenterY: PropTypes.number,
     rtl: PropTypes.bool,
     setCanvas: PropTypes.func.isRequired,
+    rootSetImage: PropTypes.func,
     setTextArea: PropTypes.func.isRequired,
     textArea: PropTypes.instanceOf(Element),
-    zoomLevelId: PropTypes.string
+    zoomLevelId: PropTypes.string,
+    rootDownloadImage: PropTypes.func
 };
 
 export default injectIntl(PaintEditorComponent);
