@@ -134,6 +134,9 @@ class PolyTool extends paper.Tool {
             return;
         }
 
+        this.poly.selected = true;
+        this.setSelectedItems();
+        this.onUpdateImage();
         /*if (this.poly) {
             if (Math.abs(this.poly.size.width * this.poly.size.height) < PolyTool.TOLERANCE / paper.view.zoom) {
                 // Tiny oval created unintentionally?

@@ -7,6 +7,8 @@ import {createStore} from 'redux';
 import reducer from './reducers/combine-reducers';
 import {intlInitialState, IntlProvider} from './reducers/intl.js';
 import styles from './playground.css';
+import CodeModal from '../components/codeModal.jsx';
+
 // scratch-render-fonts is a playground-only dep. Fonts are expected to be imported
 // as a peer dependency, otherwise there will be two copies of them.
 import {FONTS} from 'scratch-render-fonts';
@@ -35,14 +37,16 @@ class Playground extends React.Component {
             'downloadImage',
             'handleUpdateName',
             'handleUpdateImage',
-            'onUploadImage'
+            'onUploadImage',
+            'getCode',
+            'setCode'
         ]);
         // Append ?dir=rtl to URL to get RTL layout
         const match = location.search.match(/dir=([^&]+)/);
         const rtl = match && match[1] == 'rtl';
         this.id = 0;
         this.state = {
-            name: 'meow',
+            name: 'Vektorgrafik',
             rotationCenterX: 20,
             rotationCenterY: 400,
             imageFormat: 'svg', // 'svg', 'png', or 'jpg'
@@ -78,6 +82,26 @@ class Playground extends React.Component {
                 rotationCenterY: rotationCenterY
             });
         }
+    }
+    getCode () {
+        let data = this.state.image;
+        document.getElementById(styles.txtCode).value = data;
+        //data = [data];
+        console.log(data);
+    }
+    setCode(){
+
+        let data = document.getElementById(styles.txtCode).value;    
+
+        this.setState({
+            image: data,
+            //name: file.name.split('.').slice(0, -1).join('.'),
+            imageId: ++this.id,
+            imageFormat: 'svg',
+            rotationCenterX: undefined,
+            rotationCenterY: undefined,
+        });
+
     }
     downloadImage () {
         const downloadLink = document.createElement('a');
@@ -166,6 +190,29 @@ class Playground extends React.Component {
             });
        }
     }
+
+    
+    displayCodeModal(){
+        var codeModal = document.getElementById(styles.myModal);
+        codeModal.style.display = "block";
+    }
+    hideCodeModal(){
+        var codeModal = document.getElementById(styles.myModal);
+        codeModal.style.display = "none";
+    }
+
+
+/*
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}*/
+
+
     render () {
         return (
             <div className={styles.wrapper}>
@@ -174,10 +221,31 @@ class Playground extends React.Component {
                     onUpdateName={this.handleUpdateName}
                     onUpdateImage={this.handleUpdateImage}
                 />
+
                 <button className={styles.playgroundButton}  onClick={this.uploadImage}>Upload</button>
                 <input id={styles.fileInput} type="file" name="name" onChange={this.onUploadImage} />
                 <button className={styles.playgroundButton} onClick={this.downloadImage}>Download</button>
+
+                            
+                {/* custom code modal */}
+                <button id={styles.myBtn} onClick={this.displayCodeModal} >Open Modal</button>
+                <div id={styles.myModal} className={styles.modal}>
+
+                    <div className={styles.modalContent}>
+                        <span className={styles.close} onClick={this.hideCodeModal}>&times;</span>
+                        <p>Some text in the Modal..</p>
+                        <CodeModal                                
+                            onUpdateImage={this.handleUpdateImage}
+                        />
+                        <textarea id={styles.txtCode}></textarea>
+                        <button className={styles.playgroundButton} onClick={this.getCode}>Code</button>
+                        <button className={styles.playgroundButton} onClick={this.setCode}>set Code</button>
+                    </div>
+
+                </div>
+
             </div>
+            
         );
     }
 

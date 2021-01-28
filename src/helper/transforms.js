@@ -5,7 +5,8 @@ import {getItems} from './selection';
 
 const MIN_WIDTH = 1;
 const MIN_HEIGHT = 1;
-
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 400;
 
 // Selected items and currently active text edit items respond to color changes.
 const _getItems = function (textEditTargetId) {
@@ -32,8 +33,8 @@ const applyPositionXToSelection = function (value, textEditTargetId) {
         }
         if (isGroup(item)) {
             continue;
-        } else if (item.position.x !== value) {
-            item.position.x = value;
+        } else if (item.position.x !== (value + CANVAS_WIDTH)) {
+            item.position.x = (value + CANVAS_WIDTH);
             changed = true;
         }
     }
@@ -48,8 +49,8 @@ const applyPositionYToSelection = function (value, textEditTargetId) {
         }
         if (isGroup(item)) {
             continue;
-        } else if (item.position.y !== value) {
-            item.position.y = value;
+        } else if (item.position.y !== (value*-1 + CANVAS_HEIGHT)) {
+            item.position.y = (value*-1 + CANVAS_HEIGHT);
             changed = true;
         }
     }
@@ -62,14 +63,14 @@ const getPositionXFromSelection = function (selectedItems, bitmapMode){
     for (let item of selectedItems) {
        tempX = item.position.x;
     }
-    return Math.round(tempX);
+    return Math.round(tempX)-CANVAS_WIDTH;
 }
 const getPositionYFromSelection = function (selectedItems, bitmapMode){
     let tempY = 0;
     for (let item of selectedItems) {
        tempY = item.position.y;
     }
-    return Math.round(tempY);
+    return (Math.round(tempY)-CANVAS_HEIGHT)*-1;
 }
 
 // set Position Width, Height

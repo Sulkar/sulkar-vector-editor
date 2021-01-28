@@ -3,7 +3,7 @@ import {getPositionXFromSelection} from '../helper/transforms';
 import {MOVING} from '../reducers/move';
 
 const CHANGE_POSITION_X = 'scratch-paint/position/CHANGE_POSITION_X';
-const initialState = 4;
+const initialState = 0;
 
 const reducer = function (state, action) {  
 

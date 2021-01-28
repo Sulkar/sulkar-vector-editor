@@ -4,11 +4,11 @@ See https://github.com/LLK/scratch-paint/issues/13 */
 
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import classNames from 'classnames';
 import styles from './label.css';
 
 const Label = props => (
-    <label className={styles.inputGroup}>
+    <label className={classNames(styles.inputGroup, props.sulkar ? styles.sulkar : "")}>
         <span className={props.secondary ? styles.inputLabelSecondary : styles.inputLabel}>
             {props.text}
         </span>

@@ -3,7 +3,7 @@ import {getPositionHeightFromSelection} from '../helper/transforms';
 import {MOVING} from '../reducers/move';
 
 const CHANGE_POSITION_HEIGHT = 'scratch-paint/position/CHANGE_POSITION_HEIGHT';
-const initialState = 4;
+const initialState = 0;
 
 const reducer = function (state, action) {  
 

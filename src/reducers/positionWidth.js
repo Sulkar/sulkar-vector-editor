@@ -3,7 +3,7 @@ import {getPositionWidthFromSelection} from '../helper/transforms';
 import {MOVING} from '../reducers/move';
 
 const CHANGE_POSITION_WIDTH = 'scratch-paint/position/CHANGE_POSITION_WIDTH';
-const initialState = 4;
+const initialState = 0;
 
 const reducer = function (state, action) {  
 

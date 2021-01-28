@@ -145,7 +145,7 @@ $border-radius: 0.25rem;
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .zoom-controls {
@@ -194,10 +194,10 @@ $border-radius: 0.25rem;
         padding: calc(3 * $grid-unit) $grid-unit;
     }
 
-    .mode-selector {
+    /*.mode-selector {
         flex-direction: column;
         justify-content: flex-start;
-    }
+    }*/
 
     .controls-container {
         margin-right: $grid-unit;
@@ -223,3 +223,4 @@ $border-radius: 0.25rem;
 .button-text {
     width: 100%; /* Fixes button text wrapping in Edge */
 }
+

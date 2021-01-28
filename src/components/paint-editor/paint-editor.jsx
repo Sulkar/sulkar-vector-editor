@@ -104,29 +104,8 @@ const PaintEditorComponent = props => (
                             {/* stroke width */}
                             <StrokeWidthIndicatorComponent
                                 onUpdateImage={props.onUpdateImage}
-                            />
+                            />                     
 
-                            {/* Position X */}
-                            <PositionXComponent                                
-                                onUpdateImage={props.onUpdateImage}
-                            />
-                            {/* Position Y */}
-                            <PositionYComponent                                
-                                onUpdateImage={props.onUpdateImage}
-                            />
-
-                            {/* Position Width */}
-                            <PositionWidthComponent                                
-                                onUpdateImage={props.onUpdateImage}
-                            />
-                            {/* Position Height */}
-                            <PositionHeightComponent                                
-                                onUpdateImage={props.onUpdateImage}
-                            />
-                            {/* Position Rotation */}
-                            <PositionRotationComponent                                
-                                onUpdateImage={props.onUpdateImage}
-                            />
 
                         </InputGroup>
                         <InputGroup className={styles.modModeTools}>
@@ -195,6 +174,32 @@ const PaintEditorComponent = props => (
                     <PolyMode
                         onUpdateImage={props.onUpdateImage}
                     />
+                   
+                    {/* Position X */}
+                    <PositionXComponent                                
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    <span></span>
+                    {/* Position Y */}
+                    <PositionYComponent                                
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    <span></span>
+                     {/* Position Width */}
+                     <PositionWidthComponent                                
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    <span></span>
+                    {/* Position Height */}
+                    <PositionHeightComponent                                
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    <span></span>
+                    {/* Position Rotation */}
+                    <PositionRotationComponent                                
+                        onUpdateImage={props.onUpdateImage}
+                    />
+                    
                 </div>
             ) : null}
 

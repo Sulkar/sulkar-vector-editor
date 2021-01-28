@@ -36,9 +36,9 @@ img.tool-select-icon {
 }
 
 @media only screen and (max-width: $full-size-paint) {
-    .mod-tool-select {
+    /*.mod-tool-select {
         margin: 0;
-    }
+    }*/
 }
 
 .sulkar.is-selected{
