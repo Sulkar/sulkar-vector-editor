@@ -15,6 +15,8 @@ class CodeModal extends React.Component {
         'hideCodeModal'
     ]);
 
+    
+
   }
   setSVGCodeToEditor(){    
     let data = document.getElementById("codeTextarea").value;
@@ -27,6 +29,7 @@ class CodeModal extends React.Component {
   displayCodeModal(){
       var codeModal = document.getElementById(styles.myModal);
       codeModal.style.display = "block";
+      this.getSVGCodeFromEditor();
   }
   hideCodeModal(){
       var codeModal = document.getElementById(styles.myModal);
@@ -48,9 +51,8 @@ class CodeModal extends React.Component {
           <div className={styles.modalContent}>
               <span className={styles.close} onClick={this.hideCodeModal}>&times;</span>
               <p>Hier kannst du eigenen SVG Code eingeben oder den Code der aktuellen Grafik anzeigen lassen.</p>
-              <textarea id="codeTextarea" className={styles.codeTextarea} rows="6" /> 
+              <textarea id="codeTextarea" className={styles.codeTextarea} rows="6"></textarea> 
               <div>
-                <button className={styles.modalButton} onClick={this.getSVGCodeFromEditor}>Code anzeigen</button>
                 <button className={styles.modalButton} onClick={this.setSVGCodeToEditor}>Code anwenden</button>
               </div>
           </div>

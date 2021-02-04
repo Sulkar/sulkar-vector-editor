@@ -51,6 +51,7 @@ import PositionRotationComponent from '../../containers/positionRotation.jsx';
 import PolyMode from '../../containers/poly-mode.jsx';
 
 import CodeModal from '../codeModal/codeModal.jsx';
+import InfoModal from '../infoModal/infoModal.jsx';
 import DownloadImage from '../download-upload/downloadImage.jsx';
 import UploadImage from '../download-upload/uploadImage.jsx';
 
@@ -85,7 +86,11 @@ const PaintEditorComponent = props => (
                         onUpdateImage={props.onUpdateImage}
                         onUpdateName={props.onUpdateName}
                     />
+                    <InfoModal />
                 </div>
+
+                
+
                 {/* Second Row */}
                 {isVector(props.format) ?
                     <div className={styles.row}>

@@ -101,6 +101,7 @@ class PaintEditor extends React.Component { // bekommt ganzen State vom playgrou
         
     }
     componentDidMount () {
+        document.getElementById("sulkarIsLoading").style.display = "none";
         document.addEventListener('keydown', this.props.onKeyPress);
 
         // document listeners used to detect if a mouse is down outside of the
