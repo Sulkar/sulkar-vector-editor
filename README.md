@@ -1,4 +1,9 @@
 # scratch-paint
+#### Infos
+- build `npm run build`
+- output = ./playground/playground.js
+- can be minified with [UglifyJS 3: Online JavaScript minifier](https://skalman.github.io/UglifyJS-online/)
+
 #### Scratch-paint provides a paint editor React component that takes and outputs SVGs or PNGs. It can convert between vector and bitmap modes.
 
 #### 1) change position of selected element
