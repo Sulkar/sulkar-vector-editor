@@ -33,39 +33,20 @@ class FontDropdown extends React.Component {
     }
     getFontStyle (font) {
         switch (font) {
-        case Fonts.SERIF:
-            return styles.serif;
         case Fonts.SANS_SERIF:
-            return styles.sansSerif;
+            return styles.serif;        
         case Fonts.HANDWRITING:
             return styles.handwriting;
         case Fonts.MARKER:
             return styles.marker;
-        case Fonts.CURLY:
-            return styles.curly;
         case Fonts.PIXEL:
-            return styles.pixel;
-        case Fonts.CHINESE:
-            return styles.chinese;
-        case Fonts.JAPANESE:
-            return styles.japanese;
-        case Fonts.KOREAN:
-            return styles.korean;
+            return styles.pixel;      
         default:
             return '';
         }
     }
     getFontName (font) {
-        switch (font) {
-        case Fonts.CHINESE:
-            return '中文';
-        case Fonts.KOREAN:
-            return '한국어';
-        case Fonts.JAPANESE:
-            return '日本語';
-        default:
-            return font;
-        }
+        return font;        
     }
     handleChangeFontSansSerif () {
         if (this.dropDown.isOpen()) {

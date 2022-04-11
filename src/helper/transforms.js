@@ -40,6 +40,7 @@ const applyPositionXToSelection = function (value, textEditTargetId) {
     }
     return changed;
 };
+
 const applyPositionYToSelection = function (value, textEditTargetId) {
     let changed = false;
     const items = _getItems(textEditTargetId);
@@ -85,7 +86,9 @@ const applyPositionWidthToSelection = function (value, textEditTargetId) {
             continue;
         } else if (item.bounds.width !== value) {
             if(value < MIN_WIDTH) value = MIN_WIDTH;
+            let oldPositionX = item.position.x;
             item.bounds.width = value;
+            item.position.x = oldPositionX;
             changed = true;
         }
     }
@@ -102,8 +105,12 @@ const applyPositionHeightToSelection = function (value, textEditTargetId) {
             continue;
         } else if (item.bounds.height !== value) {
             if(value < MIN_HEIGHT) value = MIN_HEIGHT;
+            
+            let oldPositionY = item.position.y;
             item.bounds.height = value;
+            item.position.y = oldPositionY;
             changed = true;
+
         }
     }
     return changed;

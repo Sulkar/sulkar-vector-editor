@@ -23,15 +23,7 @@ const ModeToolsComponent = props => (
                         {props.getFontName(Fonts.SANS_SERIF)}
                     </span>
                 </Button>
-                <Button
-                    className={classNames(styles.modMenuItem)}
-                    onClick={props.onChoose}
-                    onMouseOver={props.onHoverSerif}
-                >
-                    <span className={styles.serif}>
-                        {props.getFontName(Fonts.SERIF)}
-                    </span>
-                </Button>
+                
                 <Button
                     className={classNames(styles.modMenuItem)}
                     onClick={props.onChoose}
@@ -50,15 +42,7 @@ const ModeToolsComponent = props => (
                         {props.getFontName(Fonts.MARKER)}
                     </span>
                 </Button>
-                <Button
-                    className={classNames(styles.modMenuItem)}
-                    onClick={props.onChoose}
-                    onMouseOver={props.onHoverCurly}
-                >
-                    <span className={styles.curly}>
-                        {props.getFontName(Fonts.CURLY)}
-                    </span>
-                </Button>
+               
                 <Button
                     className={classNames(styles.modMenuItem)}
                     onClick={props.onChoose}
@@ -68,33 +52,8 @@ const ModeToolsComponent = props => (
                         {props.getFontName(Fonts.PIXEL)}
                     </span>
                 </Button>
-                <Button
-                    className={classNames(styles.modMenuItem)}
-                    onClick={props.onChoose}
-                    onMouseOver={props.onHoverChinese}
-                >
-                    <span className={styles.chinese}>
-                        {props.getFontName(Fonts.CHINESE)}
-                    </span>
-                </Button>
-                <Button
-                    className={classNames(styles.modMenuItem)}
-                    onClick={props.onChoose}
-                    onMouseOver={props.onHoverJapanese}
-                >
-                    <span className={styles.japanese}>
-                        {props.getFontName(Fonts.JAPANESE)}
-                    </span>
-                </Button>
-                <Button
-                    className={classNames(styles.modMenuItem)}
-                    onClick={props.onChoose}
-                    onMouseOver={props.onHoverKorean}
-                >
-                    <span className={styles.korean}>
-                        {props.getFontName(Fonts.KOREAN)}
-                    </span>
-                </Button>
+                
+                
             </InputGroup>
         }
         ref={props.componentRef}
