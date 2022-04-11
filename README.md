@@ -1,5 +1,8 @@
 # scratch-paint
 #### Infos
+
+- start dev server `npm start` 
+- go to: [http://localhost:8078/](http://localhost:8078/)
 - build `npm run build`
 - output = ./playground/playground.js
 - can be minified with [UglifyJS 3: Online JavaScript minifier](https://skalman.github.io/UglifyJS-online/)
