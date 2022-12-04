@@ -93,7 +93,7 @@ class EyeDropperTool extends paper.Tool {
         if (!this.bufferLoaded) return null;
         const colorContext = this.colorCanvas.getContext('2d');
         const bufferContext = this.bufferCanvas.getContext('2d');
-        const colors = colorContext.getImageData(artX * ZOOM_SCALE, artY * ZOOM_SCALE, 1, 1);
+        const colors = colorContext.getImageData(artX * ZOOM_SCALE, artY * ZOOM_SCALE, 1, 1, { willReadFrequently: true });
         return {
             x: x,
             y: y,
@@ -102,7 +102,7 @@ class EyeDropperTool extends paper.Tool {
                 ZOOM_SCALE * (artX - LOUPE_RADIUS),
                 ZOOM_SCALE * (artY - LOUPE_RADIUS),
                 LOUPE_RADIUS * 2 * ZOOM_SCALE,
-                LOUPE_RADIUS * 2 * ZOOM_SCALE
+                LOUPE_RADIUS * 2 * ZOOM_SCALE, { willReadFrequently: true }
             ).data,
             hideLoupe: hideLoupe
         };

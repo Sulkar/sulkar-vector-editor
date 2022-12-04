@@ -51,6 +51,7 @@ class InfoModal extends React.Component {
                 <li><a href="https://github.com/LLK/scratch-paint" target="_blank">GitHub Repository vom original Scratch Kostüme Editor</a></li>
                 <li><a href="https://scratch.mit.edu/" target="_blank">Scratch Editor</a></li>
                 <li><span id={styles.spanRot}>Info:</span> r.scheglmann@gmail.com</li>
+                <li><span id={styles.spanRot}>Version:</span> 1.0.1</li>
               </ul>
           </div>
         </div>

@@ -67,10 +67,6 @@ const Box = props => {
                 width: width,
                 height: height
             },
-            process.env.DEBUG ? { // eslint-disable-line no-undef
-                backgroundColor: getRandomColor(),
-                outline: `1px solid black`
-            } : {},
             style
         ),
         ...componentProps
